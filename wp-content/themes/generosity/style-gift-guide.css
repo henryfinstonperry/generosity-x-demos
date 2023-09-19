@@ -1,0 +1,392 @@
+/* 
+ * Fundraise Up
+ */
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+* {
+  min-width: 0;
+}
+html {
+  font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  /*!rtl:prepend:"IBM Plex Sans Arabic", */
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+body {
+  font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  /*!rtl:prepend:"IBM Plex Sans Arabic", */
+  text-align: left;
+  font-weight: 400;
+  color: #212830;
+  background-color: rgba(0, 0, 0, 0);
+  margin: 0;
+  overscroll-behavior: none;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+}
+.focus-outline:focus {
+  outline-width: 0;
+}
+.js-focus-visible .focus-outline[data-focus-visible-added]:focus {
+  outline-width: initial;
+}
+[v-cloak] {
+  display: none;
+}
+.js-focus-visible :focus:not([data-focus-visible-added]) {
+  outline: 0;
+}
+body {
+  height: 100%;
+  color: #5e5e5e;
+}
+.d-flex {
+  display: flex;
+}
+.align-items-center {
+  align-items: center;
+}
+.justify-content-between {
+  justify-content: space-between;
+}
+.flex-grow-1 {
+  flex-grow: 1;
+}
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+.text-center {
+  text-align: center;
+}
+.icon-stroke {
+  stroke: currentColor;
+  display: inline-block;
+  vertical-align: -0.1625em;
+  width: 1em;
+  height: 1em;
+}
+.card-shadow-gutter {
+  padding: 4px;
+}
+.card {
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  background: #fff;
+  transform: translateZ(0);
+}
+.card.shadow {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+.card:hover .btn-bg:before {
+  opacity: 0.1;
+}
+.card:active .btn-bg:before {
+  opacity: 0.2;
+}
+.image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 40px;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+.body {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 44px;
+  transition: all 0.3s ease-in-out;
+  background: #fff;
+  transform: translateY(100%);
+}
+.card.animated.hoverable:hover .body,
+.card.animated.open .body {
+  transform: translateY(0);
+}
+.body-bg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+.card.animated.hoverable:hover .body-bg,
+.card.animated.open .body-bg {
+  opacity: 0.05;
+  transition: all 0.3s ease-in-out;
+}
+.body-title {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 44px;
+  transition: all 0.3s ease-in-out;
+  transform: translateY(100%);
+}
+.card.animated.hoverable:hover .body-title,
+.card.animated.open .body-title {
+  transform: translateY(0);
+}
+.title {
+  position: relative;
+  z-index: 2;
+  background: #fff;
+  padding: 19px 20px;
+  transition: all 0.3s ease-in-out;
+  transform: translateY(-100%);
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+}
+.card.animated.hoverable:hover .title,
+.card.animated.open .title {
+  transform: translateY(0);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.13);
+  box-shadow: none;
+}
+.title-text {
+  font-size: 16px;
+  line-height: 24px;
+  /*!rtl:26px*/
+  font-weight: 400;
+  white-space: normal;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.title-fake {
+  padding: 20px;
+  visibility: hidden;
+}
+.title-icon-slot {
+  position: relative;
+  width: 12px;
+  line-height: 12px;
+  margin-left: 10px;
+}
+.title-icon-slot:before {
+  content: " ";
+  opacity: 0;
+}
+.title-icon-centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+}
+.title-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -6px 0 0 -6px;
+  transform: rotateX(180deg);
+  transition: all 0.3s ease-in-out;
+  opacity: 0.5;
+}
+.card.animated.hoverable:hover .title-icon,
+.card.animated.open .title-icon {
+  transform: rotateX(0);
+}
+.content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 44px;
+  left: 0;
+  opacity: 0;
+  transition: all 0.15s ease-in-out;
+  overflow: hidden;
+}
+.card.animated.hoverable:hover .content,
+.card.animated.open .content {
+  opacity: 1;
+  transition: all 0.15s ease-in-out;
+  transition-delay: 0.15s;
+}
+.content-text {
+  padding: 20px;
+  font-size: 14px;
+  line-height: 20px;
+  white-space: pre-wrap;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+}
+.btn {
+  position: relative;
+  width: 100%;
+  display: block;
+  padding: 0 15px;
+  margin: 0;
+  color: #fff;
+  background: rgba(0, 0, 0, 0);
+  border: 0;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+.btn-bg {
+  background: #548deb;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+.btn-bg:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: #545862;
+  opacity: 0;
+  transition: opacity 0.15s ease-in-out;
+}
+.btn-label {
+  line-height: 44px;
+  height: 44px;
+  padding: 0 5px;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  position: relative;
+  z-index: 2;
+}
+.offTransition .body,
+.offTransition .body-bg,
+.offTransition .body-title,
+.offTransition .btn,
+.offTransition .btn-bg:before,
+.offTransition .content,
+.offTransition .title,
+.offTransition .title-icon {
+  transition: none;
+}
+.emoji-symbol {
+  font-size: 1.13334em;
+}
+.emoji-img {
+  height: 1em;
+  width: 1em;
+  margin: 0 0.05em 0 0.1em;
+  vertical-align: -0.1em;
+  font-size: 1.13334em;
+}
+
+/* 
+ * Gift Guide
+ */
+.hero-section {
+  background-image: url('/wp-content/uploads/2023/08/Screenshot-2023-08-10-at-8.10.08-PM.png');
+  background-position: center;
+  background-size: cover;
+ }
+.floating-header {
+  border-bottom: 1px solid #cacaca;
+  background-color: #ffffff;
+  position: fixed;
+  padding: 10px 0;
+  width: 100%;
+  z-index: 1;
+}
+.floating-header .grid-x {
+  align-items: center;
+}
+.floating-header .logo {
+  width: 60px;
+}
+.floating-header h5 {
+  font-weight: bold;
+  text-align: center;
+}
+.floating-header .btn span {
+  background-color: #5e5e5e;
+  border-radius: 16px;
+  border: 1px solid #ffffff;
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  display: none;
+  width: 32px;
+  height: 32px;
+  line-height: 30px;
+}
+.catalog-section {
+  padding-top: 80px;
+}
+.catalog-section .card {
+  margin-bottom: 30px;
+}
+.catalog-section h3 {
+  margin-top: 30px;
+}
+.catalog-section .btn-label + .change-amt {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.catalog-section .btn-label + .change-amt span {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 44px;
+  height: 44px;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 40px;
+  transition: all 0.1s ease-in-out;
+}
+.catalog-section .btn-label + .change-amt span:hover {
+  font-size: 24px;
+}
+.catalog-section .btn-label + .change-amt span.less {
+  left: 0;
+}
+.catalog-section .btn-label + .change-amt span.more {
+  right: 0;
+}
